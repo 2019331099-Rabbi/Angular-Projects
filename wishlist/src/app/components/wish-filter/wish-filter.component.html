@@ -1,0 +1,12 @@
+<div class="row mt-3">
+    <select
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)] = "filterStatus"
+        (ngModelChange)="updateFilterStatus($event)">
+
+        <option value="0">All</option>
+        <option value="1">Fullfilled</option>
+        <option value="2">Unfullfilled</option>
+    </select>
+</div>
