@@ -1,0 +1,70 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4 text-center">📩 Contact Us</h3>
+          <form
+          [formGroup]="contactForm"
+          (ngSubmit)="$event.preventDefault(); submitForm()"
+          >
+            <!-- Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter your name"
+                formControlName="senderName"
+              />
+            </div>
+ 
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                formControlName="senderEmail"
+              />
+              <div *ngIf="contactForm.get('senderEmail')?.invalid">
+                <small class="text-danger" *ngIf="contactForm.get('senderEmail')?.errors?.['required']">
+                  Email is required.
+                </small>
+                <small class="text-danger" *ngIf="contactForm.get('senderEmail')?.errors?.['email']">
+                  Please enter a valid email address.
+                </small>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="4"
+                placeholder="Write your message here..."
+                formControlName="senderMessage"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="contactForm.invalid"
+                >
+                ✉️ Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
