@@ -1,0 +1,10 @@
+<div class="container mt-4" *ngIf="product">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">{{ product.name }}</h3>
+      <p class="card-text">Price: ${{ product.price }}</p>
+      <p class="card-text">{{ product.description }}</p>
+      <a routerLink="/products" class="btn btn-secondary mt-2">Back to Products</a>
+    </div>
+  </div>
+</div>
